@@ -3,7 +3,9 @@ name = "ester-lol"
 version = "0.1.0"
 description = "Default template for PDM package"
 authors = [{ name = "Ester Beltrami", email = "beltrami.ester@gmail.com" }]
-dependencies = []
+dependencies = [
+    "wagtail>=6.0.1",
+]
 requires-python = "==3.12.*"
 readme = "README.md"
 license = { text = "MIT" }
