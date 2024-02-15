@@ -1,0 +1,46 @@
+[project]
+name = "ester-lol"
+version = "0.1.0"
+description = "Default template for PDM package"
+authors = [{ name = "Ester Beltrami", email = "beltrami.ester@gmail.com" }]
+dependencies = []
+requires-python = "==3.12.*"
+readme = "README.md"
+license = { text = "MIT" }
+
+[project.optional-dependencies]
+linters = [
+    "ruff>=0.2.1",
+    "pre-commit>=3.6.1",
+    "mypy>=1.8.0",
+]
+
+[tool.pdm.scripts]
+_.env_file = ".env"
+
+[tool.pdm]
+distribution = false
+plugins = ["sync-pre-commit-lock"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = [
+    "E", # pycodestyle
+    "F", # Pyflakes
+    "UP", # pyupgrade
+    "B", # flake8-bugbear
+    "SIM", # flake8-simplify
+    "I", # isort
+
+]
+
+[tool.mypy]
+python_version = "3.12"
+check_untyped_defs = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+warn_unused_ignores = true
+warn_return_any = true
