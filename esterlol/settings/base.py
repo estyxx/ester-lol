@@ -27,6 +27,8 @@ INSTALLED_APPS = [
     "esterlol.home",
     "esterlol.search",
     "esterlol.users",
+    "esterlol.api",
+    "strawberry_django",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
     "wagtail.embeds",

@@ -5,6 +5,8 @@ description = "Default template for PDM package"
 authors = [{ name = "Ester Beltrami", email = "beltrami.ester@gmail.com" }]
 dependencies = [
     "wagtail>=6.0.1",
+    "strawberry-graphql[debug-server]>=0.219.2",
+    "strawberry-graphql-django>=0.31.0",
 ]
 requires-python = "==3.12.*"
 readme = "README.md"
