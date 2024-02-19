@@ -7,17 +7,16 @@ dependencies = [
     "wagtail>=6.0.1",
     "strawberry-graphql[debug-server]>=0.219.2",
     "strawberry-graphql-django>=0.31.0",
+    "django-environ>=0.11.2",
+    "psycopg2-binary>=2.9.9",
 ]
-requires-python = "==3.12.*"
+requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "MIT" }
 
 [project.optional-dependencies]
-linters = [
-    "ruff>=0.2.1",
-    "pre-commit>=3.6.1",
-    "mypy>=1.8.0",
-]
+linters = ["ruff>=0.2.1", "pre-commit>=3.6.1", "mypy>=1.8.0"]
+production = ["gunicorn>=21.2.0"]
 
 [tool.pdm.scripts]
 _.env_file = ".env"

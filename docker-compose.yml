@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+    backend:
+        build: .
+        ports:
+            - "8000:8000"
+        depends_on:
+            - db
+        environment:
+            - DATABASE_URL=postgres://postgres:password@db:5432/esterlol_db
+        command:
+            [
+                "sh",
+                "-c",
+                "pdm run python manage.py migrate && pdm run gunicorn esterlol.wsgi:application --bind 0.0.0.0:8000",
+            ]
+
+    db:
+        image: postgres:13
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: esterlol_db
+        volumes:
+            - postgres_data:/var/lib/postgresql/data
+
+volumes:
+    postgres_data:

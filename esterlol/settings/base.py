@@ -10,11 +10,16 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+from pathlib import Path
 
-PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
+import environ
+
+env = environ.Env()
+environ.Env.read_env()
+
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -67,7 +72,7 @@ TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [
-            os.path.join(PROJECT_DIR, "templates"),
+            BASE_DIR / "esterlol" / "templates",
         ],
         "APP_DIRS": True,
         "OPTIONS": {
@@ -88,19 +93,15 @@ WSGI_APPLICATION = "esterlol.wsgi.application"
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": os.path.join(BASE_DIR, "db.sqlite3"),
-    }
+    "default": env.db("DATABASE_URL", default="sqlite:///db.sqlite3"),
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",  # noqa E501
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
@@ -123,26 +124,22 @@ TIME_ZONE = "UTC"
 
 USE_I18N = True
 
+
 USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATICFILES_FINDERS = [
-    "django.contrib.staticfiles.finders.FileSystemFinder",
-    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
-]
-
-STATICFILES_DIRS = [
-    os.path.join(PROJECT_DIR, "static"),
-]
-
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
 STATIC_URL = "/static/"
+STATIC_ROOT = BASE_DIR / "static"
+STATICFILES_DIRS = [
+    BASE_DIR / "esterlol" / "static",
+]
 
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR / "media"
+
 
 # Default storage settings, with the staticfiles storage updated.
 # See https://docs.djangoproject.com/en/5.0/ref/settings/#std-setting-STORAGES
@@ -150,10 +147,6 @@ STORAGES = {
     "default": {
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
-    # ManifestStaticFilesStorage is recommended in production, to prevent
-    # outdated JavaScript / CSS assets being served from cache
-    # (e.g. after a Wagtail upgrade).
-    # See https://docs.djangoproject.com/en/5.0/ref/contrib/staticfiles/#manifeststaticfilesstorage
     "staticfiles": {
         "BACKEND": "django.contrib.staticfiles.storage.ManifestStaticFilesStorage",
     },
