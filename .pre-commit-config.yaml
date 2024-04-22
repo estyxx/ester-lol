@@ -2,7 +2,7 @@
 # See https://pre-commit.com/hooks.html for more hooks
 repos:
     - repo: https://github.com/pre-commit/pre-commit-hooks
-      rev: v4.5.0
+      rev: v4.6.0
       hooks:
           - id: trailing-whitespace
           - id: end-of-file-fixer
@@ -14,7 +14,7 @@ repos:
           - id: sort-simple-yaml
 
     - repo: https://github.com/astral-sh/ruff-pre-commit
-      rev: v0.2.1
+      rev: v0.4.1
       hooks:
           # Run the linter.
           - id: ruff
@@ -29,7 +29,7 @@ repos:
           - id: prettier
 
     - repo: https://github.com/asottile/pyupgrade
-      rev: v3.15.0
+      rev: v3.15.2
       hooks:
           - id: pyupgrade
 
@@ -39,7 +39,7 @@ repos:
           - id: django-upgrade
             args: [--target-version, "5.0"]
     - repo: https://github.com/pre-commit/mirrors-mypy
-      rev: v1.8.0
+      rev: v1.9.0
       hooks:
           - id: mypy
             additional_dependencies: [types-requests, types-setuptools]
