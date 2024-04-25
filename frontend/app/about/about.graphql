@@ -1,0 +1,49 @@
+query About {
+  page(slug: "about") {
+    ... on AboutMePage {
+      id
+      introduction
+      title
+
+      profilePhoto {
+        width
+        url
+        height
+        id
+      }
+
+      activities {
+        activity {
+          dateRange
+          id
+          link
+          longDescription
+          title
+        }
+      }
+
+      experiences {
+        experience {
+          companyName
+          companyWebsite
+          id
+          jobTitle
+          longDescription
+          shortDescription
+          timeline
+        }
+      }
+
+      openSourceContributions {
+        openSource {
+          companyName
+          companyWebsite
+          id
+          jobTitle
+          longDescription
+          timeline
+        }
+      }
+    }
+  }
+}

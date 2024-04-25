@@ -1,0 +1,21 @@
+query Home {
+  home {
+    tagline
+    cta {
+      ... on CTABlock {
+        text
+        url
+      }
+    }
+    image {
+      height
+      width
+      url
+    }
+    introduction
+    searchDescription
+    seoTitle
+    slug
+    title
+  }
+}

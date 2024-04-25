@@ -1,0 +1,56 @@
+query Resume {
+  resume {
+    id
+    introduction
+    title
+    subtitle
+    profilePhoto {
+      altText
+      id
+      rendition(specs: "fill-400x400") {
+        id
+        file
+        url
+        width
+        height
+      }
+    }
+    openSourceContributions {
+      openSource {
+        companyName
+        companyWebsite
+        id
+        jobTitle
+        shortDescription
+        timeline
+      }
+    }
+    experiences {
+      experience {
+        companyName
+        companyWebsite
+        id
+        jobTitle
+        shortDescription
+        timeline
+      }
+    }
+    educations {
+      education {
+        dateRange
+        degree
+        id
+        institutionName
+      }
+    }
+    activities {
+      activity {
+        dateRange
+        id
+        link
+        shortDescription
+        title
+      }
+    }
+  }
+}

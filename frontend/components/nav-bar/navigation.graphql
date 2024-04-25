@@ -1,0 +1,26 @@
+query Navigation {
+  navigationSettings {
+    primaryNavigation {
+      ... on Page {
+        id
+        title
+        slug
+      }
+      ... on ResumePage {
+        id
+        slug
+        title
+      }
+      ... on HomePage {
+        id
+        title
+        slug
+      }
+      ... on AboutMePage {
+        id
+        slug
+        title
+      }
+    }
+  }
+}
