@@ -15,7 +15,6 @@ services:
       - ./pyproject.toml:/app/pyproject.toml
       - ./pdm.lock:/app/pdm.lock
 
-
   db:
     image: postgres:13
     environment:
