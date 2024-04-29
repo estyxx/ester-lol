@@ -9,12 +9,12 @@ services:
       - db
     environment:
       - DATABASE_URL=postgres://postgres:password@db:5432/esterlol_db
-    command:
-      [
-        "sh",
-        "-c",
-        "pdm run python manage.py migrate && pdm run gunicorn esterlol.wsgi:application --bind 0.0.0.0:8000",
-      ]
+
+    volumes:
+      - ./esterlol:/app/esterlol
+      - ./pyproject.toml:/app/pyproject.toml
+      - ./pdm.lock:/app/pdm.lock
+
 
   db:
     image: postgres:13

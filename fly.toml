@@ -1,10 +1,10 @@
-# fly.toml app configuration file generated for ester-lol on 2024-02-19T19:32:41Z
+# fly.toml app configuration file generated for ester-lol on 2024-04-29T14:28:29+01:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 app = 'ester-lol'
 primary_region = 'lhr'
-console_command = '/code/manage.py shell'
+console_command = '/app/manage.py shell'
 
 [build]
 
@@ -28,5 +28,5 @@ cpu_kind = 'shared'
 cpus = 1
 
 [[statics]]
-guest_path = '/code/static'
+guest_path = '/app/static'
 url_prefix = '/static/'
