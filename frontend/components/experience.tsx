@@ -1,52 +1,62 @@
 import React from 'react';
 
-import {
-  Activity,
-  Education,
-  Experience,
-  PageActivity,
-  PageEducation,
-  PageExperience,
-  PageOpenSourceContribution,
-} from '../types.generated';
 import { StyledText } from './styled-text';
 
-type DetailsProps = {
-  item: Experience | Activity | Education;
+import { Activity, Education, Experience } from '@/types.generated';
+
+type Item = Experience | Education | Activity;
+
+type ExperienceProps = {
+  items: Item[];
+  title: string;
 };
+
+type DetailsProps = {
+  item: Item;
+};
+
+const isExperience = (item: Item): item is Experience => {
+  return item.__typename === 'Experience';
+};
+
+const isEducation = (item: Item): item is Education => {
+  return item.__typename === 'Education';
+};
+
+const isActivity = (item: Item): item is Activity => {
+  return item.__typename === 'Activity';
+};
+
 const Details = ({ item }: DetailsProps) => {
   return (
     <li className='my-8 first:mt-0 last:mb-0 sm:w-[80%] mx-auto flex flex-col items-start justify-between text-theme'>
       <div>
         <h3 className='capitalize font-bold text-2xl'>
-          {item.jobTitle || item.degree} &nbsp;
-          {item.companyWebsite && (
+          {(isExperience(item) && item.jobTitle) ||
+            (isEducation(item) && item.degree)}
+          &nbsp;
+          {isExperience(item) && item.companyWebsite && (
             <a
               href={item.companyWebsite}
               target='_blank'
               className='text-primary capitalize'
             >
-              @{item.companyName || item.institutionName}
+              @{item.companyName}
             </a>
           )}
+          {isEducation(item) && <span>{item.institutionName}</span>}
         </h3>
         <span className='capitalize font-medium text-dark/75 '>
-          {item.timeline || item.dateRange}
+          {(isExperience(item) && item.timeline) ||
+            (isEducation(item) && item.dateRange)}
         </span>
-        {item?.title && <h4>{item?.title}</h4>}
-        <StyledText text={item.longDescription || item.shortDescription} />
+        {isActivity(item) && <h4>{item?.title}</h4>}
+        {isExperience(item) && (
+          <StyledText text={item.longDescription || item.shortDescription} />
+        )}
       </div>
     </li>
   );
-};
-
-type ExperienceProps = {
-  items:
-    | PageExperience[]
-    | PageEducation[]
-    | PageOpenSourceContribution[]
-    | PageActivity[];
-  title: string;
 };
 
 const Timeline = ({ items, title }: ExperienceProps) => {
@@ -66,15 +76,10 @@ const Timeline = ({ items, title }: ExperienceProps) => {
             return (
               <Details
                 key={`${
-                  item?.experience?.companyName ||
-                  item?.education?.institutionName
+                  (isExperience(item) && item.companyName) ||
+                  (isEducation(item) && item.institutionName)
                 }-${index}`}
-                item={
-                  item.experience ||
-                  item.activity ||
-                  item.education ||
-                  item.openSource
-                }
+                item={item}
               />
             );
           })}

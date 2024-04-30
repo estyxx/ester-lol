@@ -10,8 +10,8 @@ class Experience(models.Model):
     company_name = models.CharField(max_length=255)
     company_website = models.URLField()
     timeline = models.CharField(max_length=255)
-    short_description = RichTextField()
-    long_description = RichTextField(blank=True)
+    short_description = RichTextField(blank=True, null=True)
+    long_description = RichTextField(blank=True, null=True)
 
     panels = [
         FieldPanel("job_title"),

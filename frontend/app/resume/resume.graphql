@@ -2,54 +2,38 @@ query Resume {
   resume {
     id
     introduction
-    title
     subtitle
     profilePhoto {
-      altText
-      id
-      rendition(specs: "fill-400x400") {
-        id
-        file
-        url
-        width
-        height
-      }
+      ...Image
     }
     openSourceContributions {
       openSource {
+        id
         companyName
         companyWebsite
-        id
         jobTitle
-        shortDescription
         timeline
+        shortDescription
       }
     }
     experiences {
       experience {
+        id
         companyName
         companyWebsite
-        id
         jobTitle
-        shortDescription
         timeline
+        shortDescription
       }
     }
     educations {
       education {
-        dateRange
-        degree
-        id
-        institutionName
+        ...EducationFields
       }
     }
     activities {
       activity {
-        dateRange
-        id
-        link
-        shortDescription
-        title
+        ...ActivityFields
       }
     }
   }

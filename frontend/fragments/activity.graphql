@@ -1,0 +1,8 @@
+fragment ActivityFields on Activity {
+  id
+  dateRange
+  link
+  shortDescription
+  longDescription
+  title
+}

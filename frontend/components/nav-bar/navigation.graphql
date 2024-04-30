@@ -8,8 +8,8 @@ query Navigation {
       }
       ... on ResumePage {
         id
-        slug
         title
+        slug
       }
       ... on HomePage {
         id
@@ -18,8 +18,8 @@ query Navigation {
       }
       ... on AboutMePage {
         id
-        slug
         title
+        slug
       }
     }
   }

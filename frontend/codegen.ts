@@ -5,14 +5,13 @@ const config: CodegenConfig = {
   schema: process.env.NEXT_PUBLIC_GRAPHQL_ENDPOINT_URI,
   documents: ['**/*.graphql'],
   generates: {
-    'types.generated.ts': { plugins: ['typescript'] },
-    '': {
-      preset: 'near-operation-file',
-      presetConfig: {
-        extension: '.generated.ts',
-        baseTypesPath: 'types.generated.ts',
-      },
-      plugins: ['typescript-operations', 'typed-document-node'],
+    'types.generated.ts': {
+      plugins: [
+        'typescript', // Generates TypeScript definitions based on your GraphQL schema
+        'typescript-operations', // Generates TypeScript types for your GraphQL operations and fragments
+        'typed-document-node', // Generates fully-typed DocumentNode objects
+        './dist/codegen-plugin.js',
+      ],
     },
   },
 };

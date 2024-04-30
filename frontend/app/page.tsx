@@ -5,7 +5,7 @@ import { getClient } from '@/lib/client';
 import { StyledText } from '@/components/styled-text';
 import { Heading } from '@/components/heading';
 
-import { HomeDocument } from '@/app/home-page.generated';
+import { HomeDocument } from '@/types.generated';
 
 const Home = async () => {
   const {

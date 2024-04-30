@@ -27,7 +27,7 @@ repos:
     rev: "v4.0.0-alpha.8"
     hooks:
       - id: prettier
-        args: ["--write", "**/*.{js,jsx,ts,tsx,css,md}"]
+        args: ["--write", "**/*.{js,jsx,ts,tsx,css,md,graphql}"]
 
   - repo: https://github.com/asottile/pyupgrade
     rev: v3.15.2

@@ -1,48 +1,40 @@
 query About {
-  page(slug: "about") {
-    ... on AboutMePage {
-      id
-      introduction
-      title
-
-      profilePhoto {
-        width
-        url
-        height
+  about {
+    id
+    title
+    slug
+    introduction
+    searchDescription
+    seoTitle
+    technologies {
+      technology
+    }
+    profilePhoto {
+      ...Image
+    }
+    openSourceContributions {
+      openSource {
         id
+        companyName
+        companyWebsite
+        jobTitle
+        timeline
+        longDescription
       }
-
-      activities {
-        activity {
-          dateRange
-          id
-          link
-          longDescription
-          title
-        }
+    }
+    experiences {
+      experience {
+        id
+        companyName
+        companyWebsite
+        jobTitle
+        timeline
+        longDescription
       }
-
-      experiences {
-        experience {
-          companyName
-          companyWebsite
-          id
-          jobTitle
-          longDescription
-          shortDescription
-          timeline
-        }
-      }
-
-      openSourceContributions {
-        openSource {
-          companyName
-          companyWebsite
-          id
-          jobTitle
-          longDescription
-          timeline
-        }
+    }
+    activities {
+      activity {
+        ...ActivityFields
       }
     }
   }

@@ -8,7 +8,7 @@ import { Heading } from '@/components/heading';
 import Timeline from '@/components/experience';
 import { AnimatedNumber } from '@/components/animated-number/animated-number';
 
-import { AboutDocument } from './about.generated';
+import { AboutDocument } from '@/types.generated';
 
 export const metadata: Metadata = {
   title: 'Ester Beltrami | About',
@@ -35,7 +35,7 @@ function calculateExperience(startDate: Date): number {
 const About = async () => {
   const client = await getClient();
   const data = await client.query({ query: AboutDocument });
-  const about = data?.data.page;
+  const about = data?.data.about;
 
   const yearsOfExperience = calculateExperience(new Date('May 1, 2016'));
 
@@ -58,11 +58,12 @@ const About = async () => {
           >
             <div className='absolute  top-0 -right-3 -z-10 h-[103%] w-[102%]  rounded-[2rem] rounded-br-3xl  bg-dark dark:bg-light  '></div>
             <Image
-              src={about.profilePhoto.url}
-              alt='Me'
               className='w-max h-auto rounded-2xl '
-              width={about.profilePhoto.width}
-              height={about.profilePhoto.height}
+              src={about.profilePhoto?.rendition.url}
+              alt={about.profilePhoto?.altText}
+              priority
+              width={about.profilePhoto?.rendition.width}
+              height={about.profilePhoto?.rendition.height}
             />
           </div>
         </div>
@@ -77,9 +78,20 @@ const About = async () => {
 
       <Skills />
 
-      <Timeline items={about?.experiences} title='Experience' />
-      <Timeline items={about?.openSourceContributions} title='Open Source' />
-      <Timeline items={about?.activities} title='Activity' />
+      <Timeline
+        items={about?.experiences.map((experience) => experience.experience)}
+        title='Experience'
+      />
+      <Timeline
+        items={about?.openSourceContributions.map(
+          (contribution) => contribution.openSource,
+        )}
+        title='Open Source'
+      />
+      <Timeline
+        items={about?.activities.map((activity) => activity.activity)}
+        title='Activity'
+      />
     </div>
   );
 };

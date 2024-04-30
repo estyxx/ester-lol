@@ -8,12 +8,14 @@
     "start": "next start",
     "lint": "next lint --fix",
     "format": "prettier . --write",
-    "codegen": "graphql-codegen --config codegen.ts",
-    "generate": "node ./generate-cv-pdf.js"
+    "codegen": "dotenv -e .env.local graphql-codegen --config codegen.ts",
+    "generate": "node ./generate-cv-pdf.js",
+    "lint:ts": "tsc --noemit"
   },
   "dependencies": {
     "@apollo/client": "3.9.0-rc.1",
     "@apollo/experimental-nextjs-app-support": "^0.8.0",
+    "@graphql-codegen/plugin-helpers": "^5.0.3",
     "@graphql-typed-document-node/core": "^3.2.0",
     "@tailwindcss/typography": "^0.5.10",
     "clsx": "^2.1.0",
@@ -34,6 +36,7 @@
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "autoprefixer": "^10.4.17",
+    "dotenv-cli": "^7.4.1",
     "eslint": "^8.56.0",
     "eslint-config-next": "14.1.0",
     "eslint-plugin-import": "^2.29.1",

@@ -1,0 +1,6 @@
+fragment EducationFields on Education {
+  id
+  dateRange
+  degree
+  institutionName
+}

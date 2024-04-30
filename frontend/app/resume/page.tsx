@@ -10,7 +10,7 @@ import {
 } from '@/components/icons';
 import { Heading } from '@/components/heading';
 
-import { ResumeDocument } from './resume.generated';
+import { ResumeDocument } from '@/types.generated';
 
 const Resume = async () => {
   const data = await getClient().query({ query: ResumeDocument });

@@ -54,7 +54,7 @@ export const MobileLink = ({
   toggle,
   children,
 }: {
-  title: string;
+  title?: string;
   href: string;
   toggle: () => void;
   children?: React.ReactNode;

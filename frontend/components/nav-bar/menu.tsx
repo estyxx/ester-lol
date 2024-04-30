@@ -75,13 +75,25 @@ export const Menu = ({
               })}
 
               <div className='flex items-center justify-center flex-wrap mt-2 '>
-                <MobileLink href='/tw' target='_blank' marginStyle='right'>
+                <Link
+                  href='https://twitter.com/esterbeltrami'
+                  target='_blank'
+                  marginStyle='right'
+                >
                   <TwitterIcon className='w-6  ' />
-                </MobileLink>
-                <Link href='/g' target='_blank' marginStyle='both'>
+                </Link>
+                <Link
+                  href='https://github.com/estyxx/'
+                  target='_blank'
+                  marginStyle='both'
+                >
                   <GithubIcon className='w-6 text-light dark:text-dark rounded-full ' />
                 </Link>
-                <Link href='/link' target='_blank' marginStyle='both'>
+                <Link
+                  href='https://linkedin.com/in/esterbeltrami'
+                  target='_blank'
+                  marginStyle='both'
+                >
                   <LinkedInIcon className='w-6 ' />
                 </Link>
 

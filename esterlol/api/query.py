@@ -4,8 +4,10 @@ import strawberry
 from strawberry.types import Info
 from wagtail.models import Page, Site
 
+from esterlol.api.types.pages import AboutMePage
 from esterlol.api.utils import convert_model_to_graphql_type
 from esterlol.home.models import HomePage as HomePageModel
+from esterlol.resume.models import AboutMePage as AboutMePageModel
 from esterlol.resume.models import ResumePage as ResumePageModel
 from esterlol.site_settings.models import NavigationSettings as NavigationSettingsModel
 from esterlol.site_settings.models import (
@@ -46,6 +48,12 @@ class Query:
         resume = ResumePageModel.objects.first()
 
         return convert_model_to_graphql_type(resume)
+
+    @strawberry.field
+    def about(self) -> AboutMePage:
+        about = AboutMePageModel.objects.first()
+
+        return convert_model_to_graphql_type(about)
 
     @strawberry.field
     def social_media_settings(self) -> SocialMediaSettings | None:

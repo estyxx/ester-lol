@@ -3,7 +3,7 @@ import clsx from 'clsx';
 type Props = {
   baseTextSize?: 1 | 2;
   children?: React.ReactNode;
-  text: string;
+  text?: string | null;
   classname?: string;
 };
 
@@ -45,7 +45,7 @@ export const StyledText = ({
         classname,
       )}
       dangerouslySetInnerHTML={{
-        __html: text,
+        __html: text || '',
       }}
     >
       {children}

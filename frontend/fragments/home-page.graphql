@@ -1,0 +1,18 @@
+fragment HomePageFields on HomePage {
+  id
+  title
+  slug
+  tagline
+  cta {
+    ... on CTABlock {
+      text
+      url
+    }
+  }
+  image {
+    height
+    width
+    url
+  }
+  introduction
+}

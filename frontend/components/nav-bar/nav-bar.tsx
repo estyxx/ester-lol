@@ -1,18 +1,17 @@
 import { getClient } from '@/lib/client';
 
-import { NavigationDocument } from './navigation.generated';
 import { Menu } from './menu';
 
+import { NavigationDocument } from '@/types.generated';
+
 export const NavBar = async () => {
-  const {
-    data: {
-      navigationSettings: { primaryNavigation },
-    },
-  } = await getClient().query({ query: NavigationDocument });
+  const response = await getClient().query({ query: NavigationDocument });
+  const primaryNavigation =
+    response.data?.navigationSettings?.primaryNavigation;
 
   return (
     <header className='print:hidden w-full px-responsive py-8 font-medium flex items-center justify-between z-10 relative'>
-      <Menu primaryNavigation={primaryNavigation} />
+      {primaryNavigation && <Menu primaryNavigation={primaryNavigation} />}
     </header>
   );
 };

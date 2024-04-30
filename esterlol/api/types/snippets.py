@@ -23,8 +23,8 @@ class Activity:
     title: auto
     date_range: auto
     link: auto
-    long_description: auto
-    short_description: auto
+    long_description: str | None
+    short_description: str | None
 
 
 @strawberry_django.type(model=EducationModel)
