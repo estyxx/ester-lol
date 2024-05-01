@@ -1,16 +1,14 @@
 from .base import *  # noqa
 
-import environ
-
+from .base import env
 import contextlib
 
-env = environ.Env()
 
-DEBUG = False
 SECRET_KEY = env("SECRET_KEY")
 
-ALLOWED_HOSTS = [
-    "ester-lol.fly.dev",
+ALLOWED_HOSTS = ["ester-lol.fly.dev"]
+CSRF_TRUSTED_ORIGINS = [
+    "https://ester-lol.fly.dev",
 ]
 
 WAGTAILADMIN_BASE_URL = "https://esterlol.fly.dev"
