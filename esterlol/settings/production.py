@@ -35,7 +35,7 @@ AWS_STORAGE_BUCKET_NAME = env("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
 AWS_S3_REGION_NAME = env("AWS_S3_REGION_NAME", default="eu-west-2")
 AWS_QUERYSTRING_AUTH = False  # Optional: prevents generation of signed URLs
-AWS_DEFAULT_ACL = "public-read"  # Optional: makes uploaded files readable to the public
+AWS_DEFAULT_ACL = None
 AWS_S3_OBJECT_PARAMETERS = {
     "CacheControl": "max-age=86400",
 }
