@@ -169,3 +169,6 @@ node_modules
 
 # Wagtail
 media
+
+# Development
+local.py
