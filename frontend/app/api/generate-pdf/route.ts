@@ -1,7 +1,13 @@
-import puppeteer from 'puppeteer';
+const puppeteer = require('puppeteer-core');
+const chromium = require('@sparticuz/chromium');
 
 export async function GET(request: Request) {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath(),
+    headless: chromium.headless,
+  });
   const page = await browser.newPage();
 
   const host = request.headers.get('host');

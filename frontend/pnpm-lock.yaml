@@ -17,6 +17,9 @@ dependencies:
   '@graphql-typed-document-node/core':
     specifier: ^3.2.0
     version: 3.2.0(graphql@16.8.1)
+  '@sparticuz/chromium':
+    specifier: '123'
+    version: 123.0.1
   '@tailwindcss/typography':
     specifier: ^0.5.10
     version: 0.5.10(tailwindcss@3.4.1)
@@ -32,6 +35,9 @@ dependencies:
   puppeteer:
     specifier: ^22.6.1
     version: 22.6.1(typescript@5.3.3)
+  puppeteer-core:
+    specifier: 22.6.4
+    version: 22.6.4
   react:
     specifier: ^18
     version: 18.2.0
@@ -2156,6 +2162,26 @@ packages:
       - supports-color
     dev: false
 
+  /@puppeteer/browsers@2.2.1:
+    resolution:
+      {
+        integrity: sha512-QSXujx4d4ogDamQA8ckkkRieFzDgZEuZuGiey9G7CuDcbnX4iINKWxTPC5Br2AEzY9ICAvcndqgAUFMMKnS/Tw==,
+      }
+    engines: { node: '>=18' }
+    hasBin: true
+    dependencies:
+      debug: 4.3.4
+      extract-zip: 2.0.1
+      progress: 2.0.3
+      proxy-agent: 6.4.0
+      semver: 7.6.0
+      tar-fs: 3.0.5
+      unbzip2-stream: 1.4.3
+      yargs: 17.7.2
+    transitivePeerDependencies:
+      - supports-color
+    dev: false
+
   /@repeaterjs/repeater@3.0.5:
     resolution:
       {
@@ -2169,6 +2195,19 @@ packages:
         integrity: sha512-RbhOOTCNoCrbfkRyoXODZp75MlpiHMgbE5MEBZAnnnLyQNgrigEj4p0lzsMDyc1zVsJDLrivB58tgg3emX0eEA==,
       }
     dev: true
+
+  /@sparticuz/chromium@123.0.1:
+    resolution:
+      {
+        integrity: sha512-RPrA99xrddbXXZjhUH1WZkTCK3QDQ77t/0y+vULtiW1uAlWLBxorxGnNTuzBDk6eNolxOVFrXZ2aoAN+/eB5TA==,
+      }
+    engines: { node: '>= 16' }
+    dependencies:
+      follow-redirects: 1.15.6
+      tar-fs: 3.0.5
+    transitivePeerDependencies:
+      - debug
+    dev: false
 
   /@swc/helpers@0.5.2:
     resolution:
@@ -3219,6 +3258,20 @@ packages:
     resolution:
       {
         integrity: sha512-zm4mX61/U4KXs+S/0WIBHpOWqtpW6FPv1i7n4UZqDDc5LOQ9/Y1MAnB95nO7i/lFFuijLjpe1XMdNcqDqwlH5w==,
+      }
+    peerDependencies:
+      devtools-protocol: '*'
+    dependencies:
+      devtools-protocol: 0.0.1262051
+      mitt: 3.0.1
+      urlpattern-polyfill: 10.0.0
+      zod: 3.22.4
+    dev: false
+
+  /chromium-bidi@0.5.17(devtools-protocol@0.0.1262051):
+    resolution:
+      {
+        integrity: sha512-BqOuIWUgTPj8ayuBFJUYCCuwIcwjBsb3/614P7tt1bEPJ4i1M0kCdIl0Wi9xhtswBXnfO2bTpTMkHD71H8rJMg==,
       }
     peerDependencies:
       devtools-protocol: '*'
@@ -4526,6 +4579,19 @@ packages:
         integrity: sha512-X8cqMLLie7KsNUDSdzeN8FYK9rEt4Dt67OsG/DNGnYTSDBG4uFAJFBnUeiV+zCVAvwFy56IjM9sH51jVaEhNxw==,
       }
     dev: true
+
+  /follow-redirects@1.15.6:
+    resolution:
+      {
+        integrity: sha512-wWN62YITEaOpSK584EZXJafH1AGpO8RVgElfkuXbTOrPX4fIfOyEpW/CsiNd8JdYrAoOvafRTOEnvsO++qCqFA==,
+      }
+    engines: { node: '>=4.0' }
+    peerDependencies:
+      debug: '*'
+    peerDependenciesMeta:
+      debug:
+        optional: true
+    dev: false
 
   /for-each@0.3.3:
     resolution:
@@ -6732,6 +6798,24 @@ packages:
     dependencies:
       '@puppeteer/browsers': 2.2.0
       chromium-bidi: 0.5.14(devtools-protocol@0.0.1262051)
+      debug: 4.3.4
+      devtools-protocol: 0.0.1262051
+      ws: 8.16.0
+    transitivePeerDependencies:
+      - bufferutil
+      - supports-color
+      - utf-8-validate
+    dev: false
+
+  /puppeteer-core@22.6.4:
+    resolution:
+      {
+        integrity: sha512-QtfJwPmqQec3EHc6LqbEz03vSiuVAr9bYp0TV87dLoreev6ZevsXdLgOfQgoA3GocrsSe/eUf7NRPQ1lQfsc3w==,
+      }
+    engines: { node: '>=18' }
+    dependencies:
+      '@puppeteer/browsers': 2.2.1
+      chromium-bidi: 0.5.17(devtools-protocol@0.0.1262051)
       debug: 4.3.4
       devtools-protocol: 0.0.1262051
       ws: 8.16.0
