@@ -100,10 +100,10 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
           Work Experience
           <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
         </h3>
-        <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
+        <div className='md:col-span-7 print:col-span-7 md:ml-4 '></div>
 
-        <div className=' col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className='hidden md:block md:col-span-7 print:col-span-7 border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
+        <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0 '></div>
+        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
 
         {resume.experiences.map((item, index) => {
           const experience = item.experience;
@@ -138,7 +138,7 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
         <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
 
         <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className='hidden md:block md:col-span-7 print:col-span-7 border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
+        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
 
         {resume.openSourceContributions.map((item, index) => {
           const experience = item.openSource;
@@ -173,7 +173,7 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
         <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
 
         <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className='hidden md:block md:col-span-7 print:col-span-7 border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
+        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
 
         {resume.activities.map((item, index) => {
           const activity = item.activity;
@@ -207,7 +207,7 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
         <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
 
         <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className='hidden md:block md:col-span-7 print:col-span-7 border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
+        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
 
         {resume.educations.map((item, index) => {
           const education = item.education;
