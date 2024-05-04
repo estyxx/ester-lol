@@ -24,7 +24,7 @@ environ.Env.read_env()
 DEBUG = env("DEBUG")
 
 APP_NAME = env("FLY_APP_NAME")
-ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev"]
+ALLOWED_HOSTS = [f"{APP_NAME}.fly.dev", "localhost"]
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
