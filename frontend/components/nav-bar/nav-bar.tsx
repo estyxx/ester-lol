@@ -5,7 +5,14 @@ import { Menu } from './menu';
 import { NavigationDocument } from '@/types.generated';
 
 export const NavBar = async () => {
-  const response = await getClient().query({ query: NavigationDocument });
+  const response = await getClient().query({
+    query: NavigationDocument,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 60 },
+      },
+    },
+  });
   const primaryNavigation =
     response.data?.navigationSettings?.primaryNavigation;
 

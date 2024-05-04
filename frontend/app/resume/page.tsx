@@ -13,7 +13,14 @@ import { Heading } from '@/components/heading';
 import { ResumeDocument } from '@/types.generated';
 
 const Resume = async () => {
-  const data = await getClient().query({ query: ResumeDocument });
+  const data = await getClient().query({
+    query: ResumeDocument,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 60 },
+      },
+    },
+  });
   const resume = data?.data?.resume;
 
   return (

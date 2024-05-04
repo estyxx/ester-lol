@@ -10,7 +10,14 @@ import { HomeDocument } from '@/types.generated';
 const Home = async () => {
   const {
     data: { home },
-  } = await getClient().query({ query: HomeDocument });
+  } = await getClient().query({
+    query: HomeDocument,
+    context: {
+      fetchOptions: {
+        next: { revalidate: 60 },
+      },
+    },
+  });
 
   return (
     <div className='flex flex-col justify-center items-center w-full text-theme min-h-screen 	'>
