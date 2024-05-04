@@ -25,7 +25,7 @@ const Home = async () => {
         <div className='w-full md:w-1/2 hidden md:block'>
           <Image
             src={home.image.url}
-            alt='Vercel Logo'
+            alt={home.image.alt}
             priority
             width={home.image.width}
             height={home.image.height}
