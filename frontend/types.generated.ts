@@ -264,7 +264,19 @@ export type HomePageFieldsFragment = {
   tagline?: string | null;
   introduction: string;
   cta: { __typename?: 'CTABlock'; text: string; url: string };
-  image: { __typename?: 'Image'; height: number; width: number; url: string };
+  image: {
+    __typename?: 'Image';
+    altText: string;
+    id: string;
+    rendition: {
+      __typename?: 'ImageRendition';
+      id: string;
+      file: string;
+      url: string;
+      width: number;
+      height: number;
+    };
+  };
 };
 
 export type ImageFragment = {
@@ -327,6 +339,51 @@ export const EducationFieldsFragmentDoc = {
     },
   ],
 } as unknown as DocumentNode<EducationFieldsFragment, unknown>;
+export const ImageFragmentDoc = {
+  kind: 'Document',
+  definitions: [
+    {
+      kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'Image' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'Image' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'rendition' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'specs' },
+                value: {
+                  kind: 'StringValue',
+                  value: 'fill-400x400',
+                  block: false,
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'file' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'height' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+  ],
+} as unknown as DocumentNode<ImageFragment, unknown>;
 export const HomePageFieldsFragmentDoc = {
   kind: 'Document',
   definitions: [
@@ -373,9 +430,10 @@ export const HomePageFieldsFragmentDoc = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'Image' },
+                },
               ],
             },
           },
@@ -383,11 +441,6 @@ export const HomePageFieldsFragmentDoc = {
         ],
       },
     },
-  ],
-} as unknown as DocumentNode<HomePageFieldsFragment, unknown>;
-export const ImageFragmentDoc = {
-  kind: 'Document',
-  definitions: [
     {
       kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'Image' },
@@ -429,7 +482,7 @@ export const ImageFragmentDoc = {
       },
     },
   ],
-} as unknown as DocumentNode<ImageFragment, unknown>;
+} as unknown as DocumentNode<HomePageFieldsFragment, unknown>;
 export const AboutDocument = {
   kind: 'Document',
   definitions: [
@@ -685,6 +738,46 @@ export const HomeDocument = {
     },
     {
       kind: 'FragmentDefinition',
+      name: { kind: 'Name', value: 'Image' },
+      typeCondition: {
+        kind: 'NamedType',
+        name: { kind: 'Name', value: 'Image' },
+      },
+      selectionSet: {
+        kind: 'SelectionSet',
+        selections: [
+          { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          {
+            kind: 'Field',
+            name: { kind: 'Name', value: 'rendition' },
+            arguments: [
+              {
+                kind: 'Argument',
+                name: { kind: 'Name', value: 'specs' },
+                value: {
+                  kind: 'StringValue',
+                  value: 'fill-400x400',
+                  block: false,
+                },
+              },
+            ],
+            selectionSet: {
+              kind: 'SelectionSet',
+              selections: [
+                { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'file' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'width' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'height' } },
+              ],
+            },
+          },
+        ],
+      },
+    },
+    {
+      kind: 'FragmentDefinition',
       name: { kind: 'Name', value: 'HomePageFields' },
       typeCondition: {
         kind: 'NamedType',
@@ -726,9 +819,10 @@ export const HomeDocument = {
             selectionSet: {
               kind: 'SelectionSet',
               selections: [
-                { kind: 'Field', name: { kind: 'Name', value: 'height' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'width' } },
-                { kind: 'Field', name: { kind: 'Name', value: 'url' } },
+                {
+                  kind: 'FragmentSpread',
+                  name: { kind: 'Name', value: 'Image' },
+                },
               ],
             },
           },

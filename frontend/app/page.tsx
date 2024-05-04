@@ -24,11 +24,11 @@ const Home = async () => {
       <div className='flex flex-col items-center justify-center w-full text-center md:flex-row md:text-left md:items-center'>
         <div className='w-full md:w-1/2 hidden md:block'>
           <Image
-            src={home.image.url}
-            alt={home.image.alt}
+            src={home.image.rendition.url}
+            alt={home.image.altText}
             priority
-            width={home.image.width}
-            height={home.image.height}
+            width={home.image.rendition.width}
+            height={home.image.rendition.height}
             className='w-full h-auto'
           />
         </div>
