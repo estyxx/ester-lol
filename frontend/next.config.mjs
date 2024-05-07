@@ -5,7 +5,6 @@ const nextConfig = {
       {
         protocol: process.env.IMAGE_PROTOCOL,
         hostname: process.env.IMAGE_HOSTNAME,
-        port: process.env.IMAGE_PORT,
         pathname: '**',
       },
     ],
