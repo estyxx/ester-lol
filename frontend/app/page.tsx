@@ -35,7 +35,7 @@ const Home = async () => {
         <div className='flex flex-col items-center justify-center w-full md:w-1/2 md:items-start'>
           <Heading
             text={home.title}
-            classname='text-3xl md:text-5xl lg:text-6xl text-center md:text-left'
+            classname='!text-6xl md:!text-8xl  text-center md:text-left'
           />
           <StyledText text={home.introduction} classname='my-4' />
           <div className='flex items-center justify-center md:justify-start'>
