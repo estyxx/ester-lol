@@ -43,7 +43,7 @@ const About = async () => {
     <div className='flex-col items-start justify-start  w-full  '>
       <Heading text={about.title} spaceAfter></Heading>
 
-      <div className='grid grid-cols-1 gap-8 lg:grid-cols-8 lg:gap-16  w-full '>
+      <div className='grid grid-cols-1  lg:grid-cols-8 gap-8 w-full '>
         <div className='lg:col-span-3 flex flex-col items-start justify-start  '>
           <h2 className='mb-4 text-lg font-bold uppercase text-dark/75 dark:text-light/75'>
             ABOUT ME
@@ -51,14 +51,14 @@ const About = async () => {
           <StyledText text={about.introduction} classname='my-2' />
         </div>
 
-        <div className='lg:col-span-3 flex justify-center'>
+        <div className='lg:col-span-3 flex justify-center '>
           <div
-            className='relative h-max w-max rounded-2xl border-2 border-solid border-dark  bg-light p-8 dark:border-light
+            className='relative h-max w-full rounded-2xl border-2 border-solid border-dark  bg-light p-8 dark:border-light
         dark:bg-dark  '
           >
             <div className='absolute  top-0 -right-3 -z-10 h-[103%] w-[102%]  rounded-[2rem] rounded-br-3xl  bg-dark dark:bg-light  '></div>
             <Image
-              className='w-max h-auto rounded-2xl '
+              className='w-full h-auto rounded-2xl '
               src={about.profilePhoto?.rendition.url}
               alt={about.profilePhoto?.altText}
               priority

@@ -199,7 +199,6 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
                 <div className='inline-block w-full text-theme font-bold text-xl print:text-md '>
                   {activity.title}
                 </div>
-                <StyledText text={activity.shortDescription} />
               </div>
             </>
           );

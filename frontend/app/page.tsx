@@ -34,7 +34,7 @@ const Home = async () => {
         </div>
         <div className='flex flex-col items-center justify-center w-full md:w-1/2 md:items-start'>
           <Heading
-            text={home.title}
+            text={'Ester Beltrami'}
             classname='!text-6xl md:!text-8xl  text-center md:text-left'
           />
           <StyledText text={home.introduction} classname='my-4' />
