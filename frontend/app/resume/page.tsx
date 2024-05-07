@@ -46,7 +46,7 @@ const Resume = async () => {
 dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:text-dark dark:hover:text-light
                 '
               >
-                <a href='javascript:window.print()' target='_blank'>
+                <a href='javascript:window.print()'>
                   <DownloadIcon className='' />
                 </a>
               </button>
