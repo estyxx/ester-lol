@@ -38,7 +38,7 @@ export const StyledText = ({
         'last:prose-h2:mb-0 last:prose-h3:mb-0 last:prose-h4:mb-0 last:prose-p:mb-0 last:prose-ul:mb-0 last:prose-ol:mb-0',
 
         // lists
-        'prose-li:marker:text-black prose-li:marker:m-0',
+        'prose-li:marker:text-black prose-li:marker:dark:text-light prose-li:marker:m-0',
         'prose-ul:list-outside prose-ul:pl-5 prose-li:p-0',
         'prose-ol:list-outside prose-ol:pl-5',
         'first:prose-li:mt-0 last:prose-li:mb-0',
