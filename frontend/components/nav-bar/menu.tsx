@@ -80,21 +80,21 @@ export const Menu = ({
                   target='_blank'
                   className='mr-4 '
                 >
-                  <TwitterIcon className='w-6  ' />
+                  <TwitterIcon className='w-7  ' />
                 </a>
                 <a
                   href='https://github.com/estyxx/'
                   target='_blank'
                   className='mx-4'
                 >
-                  <GithubIcon className='w-6 text-light dark:text-dark rounded-full ' />
+                  <GithubIcon className='w-7 text-light dark:text-dark rounded-full ' />
                 </a>
                 <a
                   href='https://linkedin.com/in/esterbeltrami'
                   target='_blank'
                   className='mr-4'
                 >
-                  <LinkedInIcon className='w-6 ' />
+                  <LinkedInIcon className='w-7 ' />
                 </a>
 
                 <ThemeToggleButton classname='bg-transparent !text-light dark:text-dark  ' />
@@ -126,7 +126,7 @@ export const Menu = ({
             <TwitterIcon className='w-6 mr-3 sm:mx-1  ' />
           </a>
           <a href='https://github.com/estyxx/' target='_blank' className='mx-4'>
-            <GithubIcon className='w-6 mx-3 sm:mx-1  bg-light rounded-full dark:bg-dark' />
+            <GithubIcon className='w-6 mx-3 sm:mx-1  dark:bg-light rounded-full ' />
           </a>
           <a
             href='https://www.linkedin.com/in/beltramiester'
