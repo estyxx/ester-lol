@@ -1,8 +1,9 @@
 import Script from 'next/script';
 import { Montserrat } from 'next/font/google';
 import type { Metadata } from 'next';
-import './globals.css';
+import { Analytics } from '@vercel/analytics/react';
 
+import './globals.css';
 import { NavBar } from '@/components/nav-bar/nav-bar';
 import { Footer } from '@/components/footer';
 
@@ -49,6 +50,7 @@ export default function RootLayout({
         px-responsive print:p-0 '
         >
           {children}
+          <Analytics />
         </main>
         <Footer />
       </body>
