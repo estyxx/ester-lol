@@ -186,7 +186,7 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
 
       <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9'>
         <div className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
-          Activity
+          Talks
           <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
         </div>
         <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
