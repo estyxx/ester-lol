@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import { Item, isActivity, isEducation, isExperience } from '@/lib/utils';
 import { getClient } from '@/lib/client';
 import { StyledText } from '@/components/styled-text';
 import {
@@ -11,6 +12,78 @@ import {
 import { Heading } from '@/components/heading';
 
 import { ResumeDocument } from '@/types.generated';
+
+const Detail = ({ title, items }: { title: string; items: Item[] }) => {
+  return (
+    <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9 print:gap-2'>
+      <h3 className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
+        {title}
+        <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
+      </h3>
+      <div className='md:col-span-7 print:col-span-7 md:ml-4 '></div>
+
+      <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
+      <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0 '></div>
+
+      {items.map((item: Item, index: number) => {
+        return (
+          <>
+            <div
+              key={index}
+              className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8 print:mb-0'
+            >
+              <p className='inline-block w-full text-theme font-bold text-lg print:text-sm'>
+                {isExperience(item) && (
+                  <a
+                    href={item.companyWebsite}
+                    target='_blank'
+                    className=' underline'
+                  >
+                    {item.companyName}
+                  </a>
+                )}
+              </p>
+
+              <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base  print:text-sm'>
+                {isExperience(item) ? item.timeline : item.dateRange}
+              </p>
+            </div>
+
+            <div className='md:col-span-7 print:col-span-7  md:ml-4 mb-8 print:mb-0'>
+              {isExperience(item) && (
+                <StyledText
+                  text={item.shortDescription || item.longDescription}
+                />
+              )}
+              {isActivity(item) &&
+                (item?.link ? (
+                  <a
+                    href={item.link}
+                    target='_blank'
+                    className='underline font-bold text-md print:text-sm'
+                  >
+                    {item?.title}
+                  </a>
+                ) : (
+                  item?.title
+                ))}
+              {isEducation(item) && (
+                <>
+                  <p className='inline-block w-full text-theme font-bold text-lg print:text-sm '>
+                    {item.institutionName}
+                  </p>
+                  <p className='inline-block w-full text-theme text-md print:text-sm '>
+                    {item.degree}
+                  </p>
+                </>
+              )}
+            </div>
+          </>
+        );
+      })}
+    </div>
+  );
+};
 
 const Resume = async () => {
   const data = await getClient().query({
@@ -79,8 +152,7 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
           </div>
         </div>
       </div>
-
-      <div className='grid grid-cols-1 md:grid-cols-9 print:col-span-9 print:grid-cols-9 mb-8 print:mb-0'>
+      <div className='grid grid-cols-1 md:grid-cols-9 print:col-span-9 print:grid-cols-9 mb-8 print:mb-0 print:gap-2'>
         <h3 className='md:col-span-2 print:col-span-2 relative font-bold text-xl '>
           Profile
           <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
@@ -101,165 +173,25 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
           <StyledText text={resume.introduction} />
         </div>
       </div>
+      <Detail
+        title='Work Experience'
+        items={resume.experiences.map((experience) => experience.experience)}
+      />
+      <Detail
+        title='Open Source'
+        items={resume.openSourceContributions.map(
+          (experience) => experience.openSource,
+        )}
+      />
+      <Detail
+        title='Talks'
+        items={resume.activities.map((activity) => activity.activity)}
+      />
 
-      <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9'>
-        <h3 className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
-          Work Experience
-          <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
-        </h3>
-        <div className='md:col-span-7 print:col-span-7 md:ml-4 '></div>
-
-        <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0 '></div>
-        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
-
-        {resume.experiences.map((item, index) => {
-          const experience = item.experience;
-          return (
-            <>
-              <div
-                key={index}
-                className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
-              >
-                <p className='inline-block w-full text-theme font-bold text-lg '>
-                  <a
-                    href={experience.companyWebsite}
-                    target='_blank'
-                    className=' underline'
-                  >
-                    {experience.companyName}
-                  </a>
-                </p>
-
-                <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base '>
-                  {experience.timeline}
-                </p>
-              </div>
-
-              <div className='md:col-span-7 print:col-span-7  md:ml-4 mb-8'>
-                <StyledText text={experience.shortDescription} />
-              </div>
-            </>
-          );
-        })}
-      </div>
-
-      <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9'>
-        <div className='md:col-span-2 print:col-span-2  relative font-bold text-xl text-theme mb-2'>
-          Open Source
-          <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
-        </div>
-        <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
-
-        <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
-
-        {resume.openSourceContributions.map((item, index) => {
-          const experience = item.openSource;
-          return (
-            <>
-              <div
-                key={index}
-                className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
-              >
-                <p className='inline-block w-full text-theme font-bold text-lg '>
-                  <a
-                    href={experience.companyWebsite}
-                    target='_blank'
-                    className=' underline'
-                  >
-                    {experience.companyName}
-                  </a>
-                </p>
-
-                <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base '>
-                  {experience.timeline}
-                </p>
-              </div>
-
-              <div className='md:col-span-7 print:col-span-7 md:ml-4 mb-8'>
-                <StyledText text={experience.shortDescription} />
-              </div>
-            </>
-          );
-        })}
-      </div>
-
-      <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9'>
-        <div className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
-          Talks
-          <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
-        </div>
-        <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
-
-        <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
-
-        {resume.activities.map((item, index) => {
-          const activity = item.activity;
-          return (
-            <>
-              <div
-                key={index}
-                className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
-              >
-                <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base capitalize '>
-                  {activity.dateRange}
-                </p>
-              </div>
-
-              <div className='md:col-span-7 print:col-span-7 md:ml-4 mb-8'>
-                <div className='inline-block w-full text-theme font-bold text-lg print:text-md '>
-                  {activity?.link ? (
-                    <a
-                      href={activity.link}
-                      target='_blank'
-                      className='underline'
-                    >
-                      {activity?.title}
-                    </a>
-                  ) : (
-                    activity?.title
-                  )}
-                </div>
-              </div>
-            </>
-          );
-        })}
-      </div>
-
-      <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9'>
-        <div className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
-          Education
-          <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
-        </div>
-        <div className='md:col-span-7 print:col-span-7 md:ml-4'></div>
-
-        <div className='col-span-1 md:col-span-2 print:col-span-2  border-t-2 border-dark dark:border-light mb-4 print:my-0'></div>
-        <div className=' md:col-span-7 print:col-span-7 md:border-t-2  md:border-yellow-300 dark:border-primary mb-4 print:my-0'></div>
-
-        {resume.educations.map((item, index) => {
-          const education = item.education;
-          return (
-            <>
-              <div
-                key={index}
-                className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
-              >
-                <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base capitalize '>
-                  {education.dateRange}
-                </p>
-              </div>
-
-              <div className='md:col-span-7 print:col-span-7 md:ml-4 mb-8'>
-                <p className='inline-block w-full text-theme font-bold text-xl '>
-                  {education.institutionName}
-                </p>
-                <p>{education.degree}</p>
-              </div>
-            </>
-          );
-        })}
-      </div>
+      <Detail
+        title='Education'
+        items={resume.educations.map((education) => education.education)}
+      />
     </div>
   );
 };

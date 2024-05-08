@@ -1,10 +1,8 @@
 import React from 'react';
 
+import { Item, isExperience, isEducation, isActivity } from '@/lib/utils';
+
 import { StyledText } from './styled-text';
-
-import { Activity, Education, Experience } from '@/types.generated';
-
-type Item = Experience | Education | Activity;
 
 type ExperienceProps = {
   items: Item[];
@@ -13,18 +11,6 @@ type ExperienceProps = {
 
 type DetailsProps = {
   item: Item;
-};
-
-const isExperience = (item: Item): item is Experience => {
-  return item.__typename === 'Experience';
-};
-
-const isEducation = (item: Item): item is Education => {
-  return item.__typename === 'Education';
-};
-
-const isActivity = (item: Item): item is Activity => {
-  return item.__typename === 'Activity';
 };
 
 const Details = ({ item }: DetailsProps) => {
