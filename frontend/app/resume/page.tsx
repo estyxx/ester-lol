@@ -15,8 +15,8 @@ import { ResumeDocument } from '@/types.generated';
 
 const Detail = ({ title, items }: { title: string; items: Item[] }) => {
   return (
-    <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9 print:gap-2'>
-      <h3 className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2'>
+    <div className='grid grid-cols-1 md:grid-cols-9 print:grid-cols-9 print:gap-2 print:mt-4'>
+      <h3 className='md:col-span-2 print:col-span-2  relative font-bold text-xl mb-2 print:mb-0'>
         {title}
         <div className='absolute top-1/3 left-0 bg-yellow-300 dark:bg-primary w-full h-2 -z-10  '></div>
       </h3>

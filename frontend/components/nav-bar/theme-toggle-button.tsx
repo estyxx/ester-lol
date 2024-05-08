@@ -16,7 +16,6 @@ export const ThemeToggleButton = ({ classname }: { classname?: string }) => {
     ).matches;
 
     const initialTheme = storedTheme || (prefersDark ? 'dark' : 'light');
-    console.log('Initial theme:', initialTheme); // Log initial theme determination
     setTheme(initialTheme);
   }, []);
 
@@ -30,22 +29,15 @@ export const ThemeToggleButton = ({ classname }: { classname?: string }) => {
         document.documentElement.classList.remove('dark');
         localStorage.setItem('theme', 'light');
       }
-      console.log('Theme applied:', theme); // Log theme application
     }
   }, [theme]);
 
   // Handler to toggle the theme and store the user's preference
   const handleToggleTheme = () => {
     const newTheme = theme === 'light' ? 'dark' : 'light';
-    console.log('New theme set:', newTheme); // Log theme change
     setTheme(newTheme);
   };
 
-  console.log(
-    'theme dark?',
-    theme === 'dark',
-    theme === 'dark' ? 'SunIcon' : 'MoonIcon',
-  );
   return (
     <button
       onClick={handleToggleTheme}
