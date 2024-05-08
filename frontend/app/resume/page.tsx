@@ -121,7 +121,13 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
                 className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
               >
                 <p className='inline-block w-full text-theme font-bold text-lg '>
-                  {experience.companyName}
+                  <a
+                    href={experience.companyWebsite}
+                    target='_blank'
+                    className=' underline'
+                  >
+                    {experience.companyName}
+                  </a>
                 </p>
 
                 <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base '>
@@ -156,7 +162,13 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
                 className='md:col-span-2 print:col-span-2  flex flex-col items-center justify-start mb-8'
               >
                 <p className='inline-block w-full text-theme font-bold text-lg '>
-                  {experience.companyName}
+                  <a
+                    href={experience.companyWebsite}
+                    target='_blank'
+                    className=' underline'
+                  >
+                    {experience.companyName}
+                  </a>
                 </p>
 
                 <p className='inline-block w-full text-dark/75 dark:text-light/65 text-base '>
@@ -196,8 +208,18 @@ dark:border-light dark:hover:border-light dark:bg-light dark:hover:bg-dark dark:
               </div>
 
               <div className='md:col-span-7 print:col-span-7 md:ml-4 mb-8'>
-                <div className='inline-block w-full text-theme font-bold text-xl print:text-md '>
-                  {activity.title}
+                <div className='inline-block w-full text-theme font-bold text-lg print:text-md '>
+                  {activity?.link ? (
+                    <a
+                      href={activity.link}
+                      target='_blank'
+                      className='underline'
+                    >
+                      {activity?.title}
+                    </a>
+                  ) : (
+                    activity?.title
+                  )}
                 </div>
               </div>
             </>
