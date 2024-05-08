@@ -43,6 +43,7 @@ module.exports = {
         lg: '1024px', // Applies from 1024px and up
         xl: '1280px', // Applies from 1280px and up
         '2xl': '1536px', // Applies from 1536px and up
+        '3xl': '1920px', // Applies from 1920px and up
       },
     },
   },

@@ -33,7 +33,7 @@
 }
 
 .screens-debug {
-  @apply sm:bg-yellow-300 md:bg-orange-400 lg:bg-red-400 xl:bg-slate-600 2xl:bg-teal-800;
+  @apply sm:bg-yellow-300 md:bg-orange-400 lg:bg-red-400 xl:bg-slate-600 2xl:bg-teal-800 3xl:bg-green-400;
 }
 
 .text-theme {
