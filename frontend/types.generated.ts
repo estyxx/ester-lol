@@ -268,6 +268,7 @@ export type HomePageFieldsFragment = {
     __typename?: 'Image';
     altText: string;
     id: string;
+    url: string;
     rendition: {
       __typename?: 'ImageRendition';
       id: string;
@@ -283,6 +284,7 @@ export type ImageFragment = {
   __typename?: 'Image';
   altText: string;
   id: string;
+  url: string;
   rendition: {
     __typename?: 'ImageRendition';
     id: string;
@@ -354,6 +356,7 @@ export const ImageFragmentDoc = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'rendition' },
@@ -363,7 +366,7 @@ export const ImageFragmentDoc = {
                 name: { kind: 'Name', value: 'specs' },
                 value: {
                   kind: 'StringValue',
-                  value: 'fill-400x400',
+                  value: 'fill-1024x1024',
                   block: false,
                 },
               },
@@ -453,6 +456,7 @@ export const HomePageFieldsFragmentDoc = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'rendition' },
@@ -462,7 +466,7 @@ export const HomePageFieldsFragmentDoc = {
                 name: { kind: 'Name', value: 'specs' },
                 value: {
                   kind: 'StringValue',
-                  value: 'fill-400x400',
+                  value: 'fill-1024x1024',
                   block: false,
                 },
               },
@@ -661,6 +665,7 @@ export const AboutDocument = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'rendition' },
@@ -670,7 +675,7 @@ export const AboutDocument = {
                 name: { kind: 'Name', value: 'specs' },
                 value: {
                   kind: 'StringValue',
-                  value: 'fill-400x400',
+                  value: 'fill-1024x1024',
                   block: false,
                 },
               },
@@ -748,6 +753,7 @@ export const HomeDocument = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'rendition' },
@@ -757,7 +763,7 @@ export const HomeDocument = {
                 name: { kind: 'Name', value: 'specs' },
                 value: {
                   kind: 'StringValue',
-                  value: 'fill-400x400',
+                  value: 'fill-1024x1024',
                   block: false,
                 },
               },
@@ -1013,6 +1019,7 @@ export const ResumeDocument = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'altText' } },
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'url' } },
           {
             kind: 'Field',
             name: { kind: 'Name', value: 'rendition' },
@@ -1022,7 +1029,7 @@ export const ResumeDocument = {
                 name: { kind: 'Name', value: 'specs' },
                 value: {
                   kind: 'StringValue',
-                  value: 'fill-400x400',
+                  value: 'fill-1024x1024',
                   block: false,
                 },
               },

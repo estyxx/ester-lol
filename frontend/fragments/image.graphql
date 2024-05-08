@@ -1,7 +1,8 @@
 fragment Image on Image {
   altText
   id
-  rendition(specs: "fill-400x400") {
+  url
+  rendition(specs: "fill-1024x1024") {
     id
     file
     url
