@@ -34,24 +34,35 @@ const Details = ({ item }: DetailsProps) => {
         <h3 className='capitalize font-bold text-2xl'>
           {(isExperience(item) && item.jobTitle) ||
             (isEducation(item) && item.degree)}
-          &nbsp;
+
           {isExperience(item) && item.companyWebsite && (
             <a
               href={item.companyWebsite}
               target='_blank'
               className='text-primary capitalize'
             >
-              @{item.companyName}
+              &nbsp; @{item.companyName}
             </a>
           )}
+          {isActivity(item) &&
+            (item?.link ? (
+              <a
+                href={item.link}
+                target='_blank'
+                className='text-primary capitalize'
+              >
+                {item?.title}
+              </a>
+            ) : (
+              item?.title
+            ))}
           {isEducation(item) && <span>{item.institutionName}</span>}
         </h3>
         <span className='capitalize font-medium text-dark/75 '>
           {(isExperience(item) && item.timeline) ||
             (isEducation(item) && item.dateRange)}
         </span>
-        {isActivity(item) && <h4>{item?.title}</h4>}
-        {isExperience(item) && (
+        {(isExperience(item) || isActivity(item)) && (
           <StyledText text={item.longDescription || item.shortDescription} />
         )}
       </div>
