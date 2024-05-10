@@ -42,7 +42,7 @@ const Home = async () => {
             classname='!text-6xl md:!text-8xl  text-center md:text-left'
           />
           <h2 className='text-xl font-semibold text-dark/75 dark:text-light/75 mt-4 lg:ml-2 font-mono'>
-            <h2 className='text-xl font-semibold text-dark/75 dark:text-light/75 mt-4 lg:ml-2 font-mono'>
+            <h2 className='text-xl font-semibold text-dark/75 dark:text-light/75 mt-4  font-mono'>
               {taglineParts.map((part, index) => (
                 <span key={index} className='part'>
                   {part}
