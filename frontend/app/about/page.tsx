@@ -118,7 +118,7 @@ const About = async () => {
       />
       <Timeline
         items={about?.activities.map((activity) => activity.activity)}
-        title='Activity'
+        title='Talks'
       />
     </div>
   );

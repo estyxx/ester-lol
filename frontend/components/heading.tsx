@@ -11,6 +11,7 @@ export const Heading = ({
   spaceAfter = false,
   classname,
 }: HeadingProps) => {
+  const words = text.split(' ');
   return (
     <div
       className={clsx(
@@ -22,12 +23,13 @@ export const Heading = ({
       <h1
         className={`inline-block w-full text-theme font-bold text-8xl ${classname}`}
       >
-        {text.split(' ').map((word, index) => (
+        {words.map((word, index) => (
           <span
             key={`${word}-${index}`}
             className={`inline-block animate-reveal delay-${500 * index}`}
           >
-            {word}&nbsp;
+            {word}
+            {index !== words.length - 1 ? '\u00A0' : ''}
           </span>
         ))}
       </h1>

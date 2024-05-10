@@ -19,6 +19,10 @@ const Home = async () => {
     },
   });
 
+  const taglineParts =
+    (home?.tagline && home?.tagline.split('|').map((part) => part.trim())) ||
+    [];
+
   return (
     <div className='flex flex-col justify-center items-center w-full text-theme min-h-screen 	'>
       <div className='flex flex-col items-center justify-center w-full text-center md:flex-row md:text-left md:items-center'>
@@ -37,8 +41,18 @@ const Home = async () => {
             text={'Ester Beltrami'}
             classname='!text-6xl md:!text-8xl  text-center md:text-left'
           />
-          <StyledText text={home.introduction} classname='my-4' />
-          <div className='flex items-center justify-center md:justify-start'>
+          <h2 className='text-xl font-semibold text-dark/75 dark:text-light/75 mt-4 lg:ml-2 font-mono'>
+            <h2 className='text-xl font-semibold text-dark/75 dark:text-light/75 mt-4 lg:ml-2 font-mono'>
+              {taglineParts.map((part, index) => (
+                <span key={index} className='part'>
+                  {part}
+                  {index < taglineParts.length - 1 && <span> | </span>}
+                </span>
+              ))}
+            </h2>
+          </h2>
+          <StyledText text={home.introduction} classname='mt-4 lg:ml-2 mb-8' />
+          <div className='flex items-center justify-center md:justify-start lg:ml-2'>
             <Link href={home.cta.url} className='btn-primary'>
               {home.cta.text}
             </Link>
