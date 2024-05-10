@@ -3,7 +3,7 @@ import React from 'react';
 const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
   return (
     <div
-      className='flex items-center justify-center rounded-full font-semibold bg-dark text-theme-reverse py-3 px-6 shadow-dark cursor-pointer
+      className='flex items-center justify-center rounded-full font-semibold bg-dark dark:bg-light text-theme-reverse py-3 px-6 shadow-dark cursor-pointer
     hover:scale-150 absolute duration-500 '
       style={{ transform: `translate(${x}, ${y})` }}
     >
@@ -15,8 +15,10 @@ const Skill = ({ name, x, y }: { name: string; x: string; y: string }) => {
 const Skills = () => {
   return (
     <div className='hidden xl:block'>
-      <h2 className='font-bold text-8xl mt-64 w-full text-center'>Skills</h2>
-      <div className='w-full h-screen relative flex items-center justify-center rounded-full bg-circularLight'>
+      <h2 className='font-bold text-8xl mt-64 mb-8 w-full text-center dark:text-light '>
+        Skills
+      </h2>
+      <div className='w-full h-screen relative flex items-center justify-center rounded-full bg-circularLight dark:bg-circularDark'>
         <Skill name='Python' x='0vw' y='0vw' />
         <Skill name='GraphQL' x='-20vw' y='2vw' />
         <Skill name='Django' x='7vw' y='3vw' />

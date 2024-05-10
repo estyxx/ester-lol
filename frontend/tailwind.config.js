@@ -34,9 +34,10 @@ module.exports = {
       },
       backgroundImage: {
         circularLight:
-          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px, #fff4dd 5px, #fff4dd 100px);',
+          'repeating-radial-gradient(rgba(0,0,0,0.4) 2px, #fff4dd 6px, #fff4dd 100px);',
+        circularDark:
+          'repeating-radial-gradient(rgba(255,255,255,0.4) 2px, #1b1b1b 6px, #1b1b1b 100px)',
       },
-
       screens: {
         sm: '640px', // Applies from 640px and up
         md: '768px', // Applies from 768px and up
