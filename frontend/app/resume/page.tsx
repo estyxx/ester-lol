@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import type { Metadata } from 'next';
 
 import { Item, isActivity, isEducation, isExperience } from '@/lib/utils';
 import { getClient } from '@/lib/client';
@@ -12,6 +13,11 @@ import {
 import { Heading } from '@/components/heading';
 
 import { ResumeDocument } from '@/types.generated';
+
+export const metadata: Metadata = {
+  title: 'Ester Beltrami | Resume',
+  description: 'This is my professional experience',
+};
 
 const Detail = ({ title, items }: { title: string; items: Item[] }) => {
   return (
