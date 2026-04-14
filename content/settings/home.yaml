@@ -1,0 +1,9 @@
+title: Home
+tagline: "Full Stack Web Developer | Python, React & Next.js | GraphQL Enthusiast"
+introduction: "<p>Hello 👋!<br/>I am a full-stack web developer with extensive experience building websites and products using <b>Python</b>, <b>GraphQL</b>, and <b>React</b>, my favourite tech stack. As a community organizer and speaker at tech conferences, I am deeply committed to fostering collaboration and sharing knowledge within the tech community.</p>"
+cta:
+  text: Check my resume!
+  url: https://ester.lol/resume
+image:
+  url: https://ester-lol.s3.amazonaws.com/media/original_images/Female_Developer_square.png
+  alt: "Digital illustration of Ester Beltrami, depicted as a professional woman with shoulder-length brown hair and glasses, wearing a blazer. She stands confidently against a background featuring tech-themed graphics, symbolizing her expertise in the field."
