@@ -1,0 +1,12 @@
+introduction: '<p>Hello there 👋, I have 8 years of experience as a full-stack web developer. I have a strong background in <b>Python</b> and have used many frameworks over the years, including <b>Django</b>, <b>Flask</b>, <b>FastAPI</b>, and <b>Starlette</b>. I also enjoy working on the frontend with <b>React</b>, <b>Next.js</b>, <b>TypeScript</b>, styling everything with <b>CSS</b> and <b>TailwindCSS</b>.</p><p>But my favourite technology is <b>GraphQL</b>. My enthusiasm for GraphQL led me to work on an open-source library, <a href="https://strawberry.rocks">strawberry-graphql</a>, that uses the best of Python, such as type hints, to build solid GraphQL APIs.</p><p>I''m also a <b>community organiser</b>, and I''m proud to be one of the organizers of the <a href="http://pycon.it"><b>PyCon Italia</b></a><b> </b>conference and co-organiser of the <a href="https://www.djangolondon.com/"><b>Django London Meetup</b></a> and <a href="http://pyre.it"><b>Python Reggio Emilia User Group</b></a>. My passion for community has taken me to the stage where I''ve discussed the importance of a supportive workplace culture, examined the gender bias in tech, and shared my love for linters and formatters at conferences like PyCon Italia, EuroPython and DjangoEurope.</p><p>I firmly believe in tech''s power to create an inclusive world, which drives my interest in digital accessibility. Summing it up, I am excited to be part of a team that values impact over profit and works on tech-for-good projects to make the world a better place. My journey is about coding and making meaningful contributions to the tech community and beyond.</p>'
+technologies:
+  - Python
+  - Django
+  - GraphQL
+  - Next.js
+  - React
+  - TypeScript
+  - Node.js
+  - Docker
+  - AWS
+  - PostgreSQL
